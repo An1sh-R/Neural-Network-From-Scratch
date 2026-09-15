@@ -17,3 +17,6 @@ class Dense:
         self.db = np.sum(dZ,axis=0,keepdims=True)
         dX = dZ @ self.W.T
         return dX
+
+    def params(self):
+        return [(self.W,self.dW), (self.b,self.db)]
