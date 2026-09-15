@@ -11,3 +11,9 @@ class Dense:
         self.X = X
         self.Z = X @ self.W + self.b
         return self.Z
+
+    def backward(self,dZ):
+        self.dW = self.X.T @ dZ
+        self.db = np.sum(dZ,axis=0,keepdims=True)
+        dX = dZ @ self.W.T
+        return dX
