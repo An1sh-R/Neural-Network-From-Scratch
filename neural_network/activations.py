@@ -16,3 +16,7 @@ class Softmax:
 
         self.output = exp_values / np.sum(exp_values,axis=1,keepdims=True)
         return self.output
+
+    # no op, combined softmax + cross entropy is alrdy computed
+    def backward(self, dA):
+        return dA
